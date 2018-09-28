@@ -105,7 +105,7 @@ function addressSearch() {
             $.each(divisions, function(division_id, division){
                 // console.log(division.name);
                 if (typeof division.officeIndices !== 'undefined'){
-                    
+
                     $.each(division.officeIndices, function(i, office){
                         var office_name = offices[office];
 
@@ -172,10 +172,8 @@ function addressSearch() {
                 }
             });
 
-            $("#address-image").html("<img class='img-responsive img-thumbnail' src='https://maps.googleapis.com/maps/api/staticmap?size=600x200&maptype=roadmap&markers=" + encodeURIComponent(address) + "' alt='" + address + "' title='" + address + "' />");
-
             var template = new EJS({'text': $('#tableGuts').html()});
-            
+
             if (show_federal) {
                 $('#federal-container').show();
                 $('#fed-nav').show();
@@ -194,7 +192,7 @@ function addressSearch() {
             } else {
                 $('#state-container').hide()
                 $('#state-nav').hide();
-            }                
+            }
 
             if (show_county) {
                 if (county_people.length == 0) {
@@ -213,9 +211,9 @@ function addressSearch() {
             } else {
                 $('#county-container').hide()
                 $('#county-nav').hide();
-            }  
+            }
 
-            if (show_local) {    
+            if (show_local) {
                 if (local_people.length == 0) {
                     $('#local-container').hide();
                     if (selected_local == '')
@@ -227,7 +225,7 @@ function addressSearch() {
                     $('#local-container').show();
                     $('#local-container-not-found').hide();
                 }
-                $('#local-results tbody').append(template.render({people: local_people}));   
+                $('#local-results tbody').append(template.render({people: local_people}));
             } else {
                 $('#local-container').hide()
                 $('#local-nav').hide();
@@ -284,7 +282,7 @@ function findMe() {
 };
 
 function setFoundDivisions(divisions){
-    
+
     // reset the labels
     $("#state-nav").hide();
     $("#county-nav").hide();
@@ -311,12 +309,12 @@ function setFoundDivisions(divisions){
 }
 
 function checkFederal(division_id, office_name) {
-    if( division_id == federal_pattern || 
+    if( division_id == federal_pattern ||
         cd_pattern.test(division_id) ||
         federal_offices.indexOf(office_name.name) >= 0)
         return true;
     else
-        return false; 
+        return false;
 }
 
 function checkState(division_id){
@@ -324,14 +322,14 @@ function checkState(division_id){
         sl_pattern.test(division_id))
         return true;
     else
-        return false; 
+        return false;
 }
 
 function checkCounty(division_id){
     if( county_pattern.test(division_id))
         return true;
     else
-        return false; 
+        return false;
 }
 
 function formatParty(party) {
