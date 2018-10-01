@@ -17,16 +17,16 @@ layout: default
             <br /><p class='text-center'>
                 Level of government:
                 <label>
-                    <input type="checkbox" id="show_local_results" value="Local"> Local
-                </label>
-                <label>
-                    <input type="checkbox" id="show_county_results" value="County"> County
+                    <input type="checkbox" id="show_federal_results" value="Federal"> Federal
                 </label>
                 <label>
                     <input type="checkbox" id="show_state_results" value="State"> State
                 </label>
                 <label>
-                    <input type="checkbox" id="show_federal_results" value="Federal"> Federal
+                    <input type="checkbox" id="show_county_results" value="County"> County
+                </label>
+                <label>
+                    <input type="checkbox" id="show_local_results" value="Local"> Local
                 </label>
             </p>
         </div>
@@ -182,7 +182,7 @@ layout: default
                 <span class='visible-xs-block visible-sm-block'><%= info.office.name %></span>
             </td>
             <td class='hidden-xs hidden-sm'><%= info.office.name %></td>
-            
+
             <td>
                 <% if (info.channels || info.urls){ %>
                     <span class='hidden-xs hidden-sm'>
